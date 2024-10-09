@@ -1,5 +1,18 @@
 import os
 
+def ordenar_lista(arreglo):
+
+    n = len(arreglo)
+
+    for i in range(n-1):       
+            for j in range(n-1-i):
+                if arreglo[j][1] > arreglo[j+1][1]:
+                    aux = arreglo[j+1][1]
+                    arreglo[j+1][1] = arreglo[j][1]
+                    arreglo[j][1] = aux
+                    
+
+
 def agregar_producto(lista: list, tipo: str, precio: float, cantidad: int):
     lista.append([tipo, precio, cantidad])
 
@@ -60,7 +73,9 @@ while True:
             print(producto)
             input("")
         case "3":
-            break
+            ordenar_lista(inventario)
+            print(inventario)
+            input("")
         case "4":
             print(buscar_producto_mas_caro_barato(inventario))
             input("")
